@@ -8,16 +8,16 @@ class Admin::ModeratorsController < ApplicationController
   end
 
   def update
+
     @moderator = Moderator.find(params[:id])
     if @moderator.update(moderator_params)
     flash[:notice] = "Moderator updated successfully."
-
     redirect_to admin_moderators_path
+
   else
-
-        flash[:alert] = "There was a problem"
-
-         redirect_to edit_admin_moderator_path
+    
+    flash[:alert] = "There was a problem"
+    redirect_to edit_admin_moderator_path
 
   end
 end
